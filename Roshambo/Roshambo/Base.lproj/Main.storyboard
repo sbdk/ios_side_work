@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VI6-wg-RRk">
+                                <rect key="frame" x="262" y="170" width="75" height="65"/>
+                                <animations/>
+                                <state key="normal" title="scissors" image="scissors"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCZ-jW-ZXc">
+                                <rect key="frame" x="137" y="170" width="75" height="65"/>
+                                <animations/>
+                                <state key="normal" title="rock" image="rock"/>
+                                <connections>
+                                    <action selector="pressRock" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zrb-EN-Zf6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLv-pH-a5i">
+                                <rect key="frame" x="387" y="170" width="75" height="65"/>
+                                <animations/>
+                                <state key="normal" title="paper" image="paper"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press image to start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGc-7g-ARi">
+                                <rect key="frame" x="224" y="380" width="153" height="20"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VI6-wg-RRk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3TB-GM-K8c"/>
+                            <constraint firstItem="dGc-7g-ARi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Qk-VD-fzz"/>
+                            <constraint firstItem="vLv-pH-a5i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="AN7-hL-Dp4"/>
+                            <constraint firstItem="vLv-pH-a5i" firstAttribute="leading" secondItem="VI6-wg-RRk" secondAttribute="trailing" constant="112" id="X5w-Ur-xDD"/>
+                            <constraint firstItem="vLv-pH-a5i" firstAttribute="leading" secondItem="VI6-wg-RRk" secondAttribute="trailing" constant="50" id="fkr-Bd-MYA"/>
+                            <constraint firstItem="VI6-wg-RRk" firstAttribute="leading" secondItem="PCZ-jW-ZXc" secondAttribute="trailing" constant="50" id="mO6-XS-dWs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dGc-7g-ARi" secondAttribute="bottom" constant="200" id="oDM-Ir-Hmw"/>
+                            <constraint firstItem="vLv-pH-a5i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="pKl-Zh-RXh"/>
+                            <constraint firstItem="vLv-pH-a5i" firstAttribute="leading" secondItem="VI6-wg-RRk" secondAttribute="trailing" constant="100" id="rzR-ny-mQq"/>
+                            <constraint firstItem="PCZ-jW-ZXc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="s9E-1J-uqI"/>
+                            <constraint firstItem="VI6-wg-RRk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="yBI-n1-wWt"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="X5w-Ur-xDD"/>
+                                <exclude reference="pKl-Zh-RXh"/>
+                                <exclude reference="rzR-ny-mQq"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="342" y="331"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="Ej7-o0-NXP">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" id="rHA-3Q-DCp" customClass="ResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wnn-j2-B8i"/>
+                        <viewControllerLayoutGuide type="bottom" id="L49-vs-jEx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="24b-1R-a5G">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q7-5j-9Js">
+                                <rect key="frame" x="276" y="126" width="48" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dN3-g7-BEt">
+                                <rect key="frame" x="180" y="198" width="240" height="128"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8e-1r-V1L">
+                                <rect key="frame" x="265" y="450" width="71" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Play Again"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lco-GW-6me" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005" y="332"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paper" width="75" height="65"/>
+        <image name="rock" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
+    </resources>
+</document>
