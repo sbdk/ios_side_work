@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    func randomAiResult () -> NSString {
+    func randomAiResult () -> String {
         
         let array = ["paper", "rock", "scissors"]
         let randomResult = array [Int(arc4random() % 3)]
@@ -23,19 +23,47 @@ class ViewController: UIViewController {
        
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+            if segue.identifier == "pressScissors" {
+                let controller = segue.destinationViewController as! ResultViewController
+                
+                controller.aiPick = self.randomAiResult()
+                controller.userPick = "scissors"
+            
+            }
+        
+            else if segue.identifier == "pressPaper" {
+            
+                let controller = segue.destinationViewController as! ResultViewController
+                
+                controller.aiPick = self.randomAiResult()
+                controller.userPick = "paper"
+            }
+    }
+    
     @IBAction func pressRock() {
         
-        var controller:ResultViewController
+        var controller: ResultViewController
         
         controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
         
-        controller.aiPick = self.randomAiResult() as String
-        controller.userPick = "Rock"
+        controller.aiPick = self.randomAiResult()
+        controller.userPick = "rock"
         
         self.presentViewController(controller, animated: true, completion: nil)
         
         
     }
+    
+    @IBAction func pressScissors () {
+        
+        performSegueWithIdentifier("pressScissors", sender: self)
+        
+    }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

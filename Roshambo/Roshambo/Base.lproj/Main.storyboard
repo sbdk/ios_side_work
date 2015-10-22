@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,24 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VI6-wg-RRk">
-                                <rect key="frame" x="262" y="170" width="75" height="65"/>
-                                <animations/>
-                                <state key="normal" title="scissors" image="scissors"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCZ-jW-ZXc">
-                                <rect key="frame" x="137" y="170" width="75" height="65"/>
-                                <animations/>
-                                <state key="normal" title="rock" image="rock"/>
-                                <connections>
-                                    <action selector="pressRock" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zrb-EN-Zf6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLv-pH-a5i">
-                                <rect key="frame" x="387" y="170" width="75" height="65"/>
-                                <animations/>
-                                <state key="normal" title="paper" image="paper"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press image to start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGc-7g-ARi">
                                 <rect key="frame" x="224" y="380" width="153" height="20"/>
                                 <animations/>
@@ -41,30 +23,47 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY4-r4-bDi" userLabel="scissors">
+                                <rect key="frame" x="263" y="220" width="75" height="65"/>
+                                <animations/>
+                                <state key="normal" image="scissors"/>
+                                <connections>
+                                    <action selector="pressScissors" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qrk-vE-GjA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwP-kH-9pP" userLabel="rock">
+                                <rect key="frame" x="148" y="220" width="75" height="65"/>
+                                <animations/>
+                                <state key="normal" image="rock"/>
+                                <connections>
+                                    <action selector="pressRock" destination="BYZ-38-t0r" eventType="touchUpInside" id="gPh-1S-DYc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxp-ow-iJZ" userLabel="paper">
+                                <rect key="frame" x="378" y="220" width="75" height="65"/>
+                                <animations/>
+                                <state key="normal" image="paper"/>
+                                <connections>
+                                    <segue destination="rHA-3Q-DCp" kind="modal" identifier="pressPaper" id="3Dh-IX-pvM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VI6-wg-RRk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3TB-GM-K8c"/>
-                            <constraint firstItem="dGc-7g-ARi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Qk-VD-fzz"/>
-                            <constraint firstItem="vLv-pH-a5i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="AN7-hL-Dp4"/>
-                            <constraint firstItem="vLv-pH-a5i" firstAttribute="leading" secondItem="VI6-wg-RRk" secondAttribute="trailing" constant="112" id="X5w-Ur-xDD"/>
-                            <constraint firstItem="vLv-pH-a5i" firstAttribute="leading" secondItem="VI6-wg-RRk" secondAttribute="trailing" constant="50" id="fkr-Bd-MYA"/>
-                            <constraint firstItem="VI6-wg-RRk" firstAttribute="leading" secondItem="PCZ-jW-ZXc" secondAttribute="trailing" constant="50" id="mO6-XS-dWs"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dGc-7g-ARi" secondAttribute="bottom" constant="200" id="oDM-Ir-Hmw"/>
-                            <constraint firstItem="vLv-pH-a5i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="pKl-Zh-RXh"/>
-                            <constraint firstItem="vLv-pH-a5i" firstAttribute="leading" secondItem="VI6-wg-RRk" secondAttribute="trailing" constant="100" id="rzR-ny-mQq"/>
-                            <constraint firstItem="PCZ-jW-ZXc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="s9E-1J-uqI"/>
-                            <constraint firstItem="VI6-wg-RRk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="yBI-n1-wWt"/>
+                            <constraint firstItem="fxp-ow-iJZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="17C-px-MOT"/>
+                            <constraint firstItem="dGc-7g-ARi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8MH-aa-IVo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dGc-7g-ARi" secondAttribute="bottom" constant="200" id="Bps-4u-WC6"/>
+                            <constraint firstItem="cY4-r4-bDi" firstAttribute="leading" secondItem="OwP-kH-9pP" secondAttribute="trailing" constant="40" id="XFX-ue-lej"/>
+                            <constraint firstItem="OwP-kH-9pP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="Y5o-ez-vFO"/>
+                            <constraint firstItem="cY4-r4-bDi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="aXz-8k-Ryp"/>
+                            <constraint firstItem="cY4-r4-bDi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bM0-hc-gA9"/>
+                            <constraint firstItem="fxp-ow-iJZ" firstAttribute="leading" secondItem="cY4-r4-bDi" secondAttribute="trailing" constant="40" id="e5B-jT-9c4"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="X5w-Ur-xDD"/>
-                                <exclude reference="pKl-Zh-RXh"/>
-                                <exclude reference="rzR-ny-mQq"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <connections>
+                        <segue destination="rHA-3Q-DCp" kind="modal" identifier="pressScissors" id="S2H-s0-0Z3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,7 +72,7 @@
         <!--Result View Controller-->
         <scene sceneID="Ej7-o0-NXP">
             <objects>
-                <viewController storyboardIdentifier="ResultViewController" id="rHA-3Q-DCp" customClass="ResultViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" id="rHA-3Q-DCp" customClass="ResultViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wnn-j2-B8i"/>
                         <viewControllerLayoutGuide type="bottom" id="L49-vs-jEx"/>
@@ -82,26 +81,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q7-5j-9Js">
-                                <rect key="frame" x="276" y="126" width="48" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Q7-5j-9Js">
+                                <rect key="frame" x="276" y="120" width="48" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dN3-g7-BEt">
-                                <rect key="frame" x="180" y="198" width="240" height="128"/>
-                                <animations/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8e-1r-V1L">
-                                <rect key="frame" x="265" y="450" width="71" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8e-1r-V1L">
+                                <rect key="frame" x="265" y="470" width="71" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Play Again"/>
+                                <connections>
+                                    <action selector="playAgain" destination="rHA-3Q-DCp" eventType="touchUpInside" id="07A-UD-egu"/>
+                                </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ScissorsCutPaper" translatesAutoresizingMaskIntoConstraints="NO" id="dN3-g7-BEt">
+                                <rect key="frame" x="200" y="220" width="200" height="200"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dN3-g7-BEt" firstAttribute="top" secondItem="Wnn-j2-B8i" secondAttribute="bottom" constant="200" id="1Co-9u-AO2"/>
+                            <constraint firstItem="0Q7-5j-9Js" firstAttribute="top" secondItem="Wnn-j2-B8i" secondAttribute="bottom" constant="100" id="3Th-re-50m"/>
+                            <constraint firstItem="dN3-g7-BEt" firstAttribute="centerX" secondItem="24b-1R-a5G" secondAttribute="centerX" id="8kv-zS-S4d"/>
+                            <constraint firstItem="L49-vs-jEx" firstAttribute="top" secondItem="N8e-1r-V1L" secondAttribute="bottom" constant="100" id="FkS-ii-fZC"/>
+                            <constraint firstItem="N8e-1r-V1L" firstAttribute="centerX" secondItem="24b-1R-a5G" secondAttribute="centerX" id="HpP-pR-3ig"/>
+                            <constraint firstItem="dN3-g7-BEt" firstAttribute="centerX" secondItem="24b-1R-a5G" secondAttribute="centerX" id="b8h-3r-yO1"/>
+                            <constraint firstItem="dN3-g7-BEt" firstAttribute="top" secondItem="Wnn-j2-B8i" secondAttribute="bottom" constant="200" id="c2G-2o-Uq9"/>
+                            <constraint firstItem="0Q7-5j-9Js" firstAttribute="centerX" secondItem="24b-1R-a5G" secondAttribute="centerX" id="zBF-2N-Tqg"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="b8h-3r-yO1"/>
+                                <exclude reference="c2G-2o-Uq9"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="resultImage" destination="dN3-g7-BEt" id="jBA-O1-yNF"/>
+                        <outlet property="resultLabel" destination="0Q7-5j-9Js" id="3nO-FT-rrv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lco-GW-6me" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,8 +131,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ScissorsCutPaper" width="800" height="600"/>
         <image name="paper" width="75" height="65"/>
         <image name="rock" width="75" height="65"/>
         <image name="scissors" width="75" height="65"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="S2H-s0-0Z3"/>
+    </inferredMetricsTieBreakers>
 </document>
