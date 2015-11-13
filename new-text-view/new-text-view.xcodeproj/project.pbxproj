@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE5FB0AF1BE02D5900B027CF /* ZipCodeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5FB0AE1BE02D5900B027CF /* ZipCodeDelegate.swift */; };
+		BE5FB0B11BE02D7800B027CF /* CashDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5FB0B01BE02D7800B027CF /* CashDelegate.swift */; };
+		BE5FB0B31BE02D8B00B027CF /* LockableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5FB0B21BE02D8B00B027CF /* LockableDelegate.swift */; };
 		BE680F8C1BDEE10E003CDD07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE680F8B1BDEE10E003CDD07 /* AppDelegate.swift */; };
 		BE680F8E1BDEE10E003CDD07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE680F8D1BDEE10E003CDD07 /* ViewController.swift */; };
 		BE680F911BDEE10E003CDD07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE680F8F1BDEE10E003CDD07 /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE5FB0AE1BE02D5900B027CF /* ZipCodeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipCodeDelegate.swift; sourceTree = "<group>"; };
+		BE5FB0B01BE02D7800B027CF /* CashDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CashDelegate.swift; sourceTree = "<group>"; };
+		BE5FB0B21BE02D8B00B027CF /* LockableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockableDelegate.swift; sourceTree = "<group>"; };
 		BE680F881BDEE10E003CDD07 /* new-text-view.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "new-text-view.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE680F8B1BDEE10E003CDD07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE680F8D1BDEE10E003CDD07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +106,9 @@
 				BE680F8B1BDEE10E003CDD07 /* AppDelegate.swift */,
 				BE680F8D1BDEE10E003CDD07 /* ViewController.swift */,
 				BE680F8F1BDEE10E003CDD07 /* Main.storyboard */,
+				BE5FB0AE1BE02D5900B027CF /* ZipCodeDelegate.swift */,
+				BE5FB0B01BE02D7800B027CF /* CashDelegate.swift */,
+				BE5FB0B21BE02D8B00B027CF /* LockableDelegate.swift */,
 				BE680F921BDEE10E003CDD07 /* Assets.xcassets */,
 				BE680F941BDEE10E003CDD07 /* LaunchScreen.storyboard */,
 				BE680F971BDEE10E003CDD07 /* Info.plist */,
@@ -257,7 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE680F8E1BDEE10E003CDD07 /* ViewController.swift in Sources */,
+				BE5FB0B31BE02D8B00B027CF /* LockableDelegate.swift in Sources */,
+				BE5FB0AF1BE02D5900B027CF /* ZipCodeDelegate.swift in Sources */,
 				BE680F8C1BDEE10E003CDD07 /* AppDelegate.swift in Sources */,
+				BE5FB0B11BE02D7800B027CF /* CashDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +496,7 @@
 				BE680FB21BDEE10E003CDD07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE680FB31BDEE10E003CDD07 /* Build configuration list for PBXNativeTarget "new-text-viewTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				BE680FB51BDEE10E003CDD07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE680FB61BDEE10E003CDD07 /* Build configuration list for PBXNativeTarget "new-text-viewUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +514,7 @@
 				BE680FB81BDEE10E003CDD07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

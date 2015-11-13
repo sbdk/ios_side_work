@@ -44,15 +44,15 @@ class ViewController: UIViewController {
     
     @IBAction func pressRock() {
         
-        var controller: ResultViewController
-        
-        controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
         
         controller.aiPick = self.randomAiResult()
         controller.userPick = "rock"
         
-        self.presentViewController(controller, animated: true, completion: nil)
+        //self.presentViewController(controller, animated: true, completion: nil)
         
+        self.navigationController?.pushViewController(controller, animated: true)
         
     }
     
