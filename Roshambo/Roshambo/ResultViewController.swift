@@ -96,7 +96,8 @@ class ResultViewController: UIViewController {
     @IBAction func playAgain() {
         
         if let navigationController = self.navigationController{
-            navigationController.popToRootViewControllerAnimated(true)
+            
+        navigationController.popToRootViewControllerAnimated(true)
         }
     }
     

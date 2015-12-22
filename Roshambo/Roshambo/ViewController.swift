@@ -44,8 +44,7 @@ class ViewController: UIViewController {
     
     @IBAction func pressRock() {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
         
         controller.aiPick = self.randomAiResult()
         controller.userPick = "rock"

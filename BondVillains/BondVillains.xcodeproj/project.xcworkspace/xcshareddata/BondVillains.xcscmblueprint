@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "32DB2AE76EBCD6D3DE3258C1B15BF45A6A20F764",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "93C9C0E4EFFDD1E75F19B6FB3CE8FD76BE6ED64E" : 0,
+    "32DB2AE76EBCD6D3DE3258C1B15BF45A6A20F764" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3E0CBD34-070A-45D3-BC66-C56840843B97",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "93C9C0E4EFFDD1E75F19B6FB3CE8FD76BE6ED64E" : "",
+    "32DB2AE76EBCD6D3DE3258C1B15BF45A6A20F764" : "ios-nanodegree-uikit-2.0\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BondVillains",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BondVillains\/BondVillains.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/udacity\/ios-nanodegree-uikit-2.0.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "32DB2AE76EBCD6D3DE3258C1B15BF45A6A20F764"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sbdk\/ios_side_work.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "93C9C0E4EFFDD1E75F19B6FB3CE8FD76BE6ED64E"
+    }
+  ]
+}
