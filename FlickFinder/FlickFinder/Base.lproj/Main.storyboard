@@ -32,7 +32,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hc5-Y3-dtF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Phrase" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hc5-Y3-dtF">
                                 <rect key="frame" x="42" y="425" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="EeX-se-iFE"/>
@@ -40,7 +40,7 @@
                                         <variation key="widthClass=compact" constant="244"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -55,13 +55,15 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-6p-fNB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ni1-6p-fNB">
                                 <rect key="frame" x="42" y="526" width="97" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="VKP-ob-tJe"/>
+                                    <constraint firstAttribute="width" constant="100" id="VKP-ob-tJe">
+                                        <variation key="widthClass=compact" constant="110"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="30" id="WNz-gE-mgM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -76,44 +78,27 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0qC-co-wYp">
-                                <rect key="frame" x="229" y="526" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="9J7-Sd-02p"/>
-                                    <constraint firstAttribute="height" constant="30" id="b3W-py-WSo"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="9J7-Sd-02p"/>
-                                        <exclude reference="b3W-py-WSo"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="9J7-Sd-02p"/>
-                                        <include reference="b3W-py-WSo"/>
-                                    </mask>
-                                </variation>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t6-iN-r1z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9t6-iN-r1z">
                                 <rect key="frame" x="48" y="584" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuP-oH-q1v">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuP-oH-q1v">
                                 <rect key="frame" x="221" y="583" width="77" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ww4-wO-fci">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ww4-wO-fci">
                                 <rect key="frame" x="166" y="361" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="4KZ-3R-ECY"/>
-                                    <constraint firstAttribute="width" constant="100" id="wrs-uC-ncr"/>
+                                    <constraint firstAttribute="height" constant="20" id="4KZ-3R-ECY">
+                                        <variation key="widthClass=compact" constant="40"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="100" id="wrs-uC-ncr">
+                                        <variation key="widthClass=compact" constant="200"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,12 +116,19 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPA-pp-kaf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPA-pp-kaf">
                                 <rect key="frame" x="60" y="104" width="254" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="BDs-T7-6bV"/>
-                                    <constraint firstAttribute="height" constant="200" id="s74-ri-bEK"/>
+                                    <constraint firstAttribute="height" constant="200" id="s74-ri-bEK">
+                                        <variation key="widthClass=compact" constant="250"/>
+                                    </constraint>
                                 </constraints>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="BDs-T7-6bV"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNr-IF-MAj">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -144,7 +136,7 @@
                                     <constraint firstAttribute="height" constant="30" id="9tW-sI-U8I"/>
                                     <constraint firstAttribute="width" constant="30" id="sTQ-Di-uPz"/>
                                 </constraints>
-                                <state key="normal" image="Oval 1 + Oval 2 + Line"/>
+                                <state key="normal" image="SearchButton"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="9tW-sI-U8I"/>
@@ -167,7 +159,7 @@
                                     <constraint firstAttribute="width" constant="30" id="O4h-4q-IcG"/>
                                     <constraint firstAttribute="height" constant="30" id="mhQ-Xj-tx7"/>
                                 </constraints>
-                                <state key="normal" image="Oval 1 + Oval 2 + Line"/>
+                                <state key="normal" image="SearchButton"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="O4h-4q-IcG"/>
@@ -184,12 +176,40 @@
                                     <action selector="searchByLatLonButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1tp-j6-jZG"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0qC-co-wYp">
+                                <rect key="frame" x="229" y="526" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="9J7-Sd-02p">
+                                        <variation key="widthClass=compact" constant="110"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="30" id="b3W-py-WSo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9J7-Sd-02p"/>
+                                        <exclude reference="b3W-py-WSo"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9J7-Sd-02p"/>
+                                        <include reference="b3W-py-WSo"/>
+                                    </mask>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.64003372192382812" green="0.85034364461898804" blue="0.92603784799575806" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wuP-oH-q1v" firstAttribute="top" secondItem="0qC-co-wYp" secondAttribute="bottom" constant="8" id="1ir-AB-OrD"/>
                             <constraint firstItem="9t6-iN-r1z" firstAttribute="centerX" secondItem="Ni1-6p-fNB" secondAttribute="centerX" id="45v-nI-8mQ"/>
-                            <constraint firstItem="0qC-co-wYp" firstAttribute="leading" secondItem="Ni1-6p-fNB" secondAttribute="trailing" constant="44" id="9ol-zP-Yi0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jPA-pp-kaf" secondAttribute="trailing" constant="18" id="8Qv-VS-6we">
+                                <variation key="widthClass=compact" constant="-5"/>
+                            </constraint>
+                            <constraint firstItem="0qC-co-wYp" firstAttribute="leading" secondItem="Ni1-6p-fNB" secondAttribute="trailing" constant="44" id="9ol-zP-Yi0">
+                                <variation key="widthClass=compact" constant="24"/>
+                            </constraint>
                             <constraint firstItem="9t6-iN-r1z" firstAttribute="top" secondItem="Ni1-6p-fNB" secondAttribute="bottom" constant="8" id="B6b-tt-f6J"/>
                             <constraint firstItem="0qC-co-wYp" firstAttribute="top" secondItem="hc5-Y3-dtF" secondAttribute="bottom" constant="30" id="DXg-43-Kz1"/>
                             <constraint firstItem="Ni1-6p-fNB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Efh-Wb-8AD"/>
@@ -199,6 +219,9 @@
                                 <variation key="widthClass=compact" constant="15"/>
                             </constraint>
                             <constraint firstItem="jPA-pp-kaf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WA2-2m-EOp"/>
+                            <constraint firstItem="jPA-pp-kaf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="17" id="Zkx-X8-l8f">
+                                <variation key="widthClass=compact" constant="-5"/>
+                            </constraint>
                             <constraint firstItem="nNr-IF-MAj" firstAttribute="leading" secondItem="hc5-Y3-dtF" secondAttribute="trailing" constant="11" id="aDO-lq-QBK"/>
                             <constraint firstItem="Ww4-wO-fci" firstAttribute="top" secondItem="jPA-pp-kaf" secondAttribute="bottom" constant="19" id="dBd-kI-aMH">
                                 <variation key="widthClass=compact" constant="20"/>
@@ -224,7 +247,9 @@
                                 <exclude reference="YTe-5E-3RO"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="8Qv-VS-6we"/>
                                 <exclude reference="WA2-2m-EOp"/>
+                                <exclude reference="Zkx-X8-l8f"/>
                                 <exclude reference="v7S-ed-bx0"/>
                                 <exclude reference="PDi-GQ-Ru7"/>
                                 <exclude reference="yar-RC-gLc"/>
@@ -252,7 +277,9 @@
                                 <include reference="YTe-5E-3RO"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="8Qv-VS-6we"/>
                                 <include reference="WA2-2m-EOp"/>
+                                <include reference="Zkx-X8-l8f"/>
                                 <include reference="v7S-ed-bx0"/>
                                 <include reference="PDi-GQ-Ru7"/>
                                 <include reference="yar-RC-gLc"/>
@@ -281,7 +308,7 @@
                         <outlet property="imageTitle" destination="Ww4-wO-fci" id="kWg-Xt-Rr6"/>
                         <outlet property="latitudeTextField" destination="Ni1-6p-fNB" id="H0W-bR-J0l"/>
                         <outlet property="longitudeTextField" destination="0qC-co-wYp" id="gjI-qI-Wr2"/>
-                        <outlet property="phraseTextField" destination="hc5-Y3-dtF" id="dN0-jU-a53"/>
+                        <outlet property="phraseTextField" destination="hc5-Y3-dtF" id="Hdb-Dq-grX"/>
                         <outlet property="resultImageView" destination="jPA-pp-kaf" id="dl8-y2-mk3"/>
                     </connections>
                 </viewController>
@@ -291,6 +318,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Oval 1 + Oval 2 + Line" width="43" height="43"/>
+        <image name="SearchButton" width="115" height="115"/>
     </resources>
 </document>
