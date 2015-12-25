@@ -27,22 +27,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var longitudeTextField: UITextField!
 
     
-    func prepareTextField(textField: UITextField, defaultText: String){
+    func prepareTextField(textField: UITextField){
         
         textField.delegate = self
-        textField.text = defaultText
         textField.textAlignment = .Left
         
     }
     
+    //var tapRecognizer: UITapGestureRecognizer? = nil
+    
     
     @IBAction func searchByPhraseButton(sender: AnyObject) {
-        
+    
+        dismissAnyVisibleKeyboards()
         let methodArguments = [
         
             "method": METHOD_NAME,
             "api_key": API_KEY,
-            "text": "紫金港",
+            "text": self.phraseTextField.text!,
             "safe_search":SAFE_SEARCH,
             "extras": EXTRAS,
             "format": DATA_FORMAT,
@@ -143,19 +145,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func searchByLatLonButton(sender: AnyObject) {
+        
+        dismissAnyVisibleKeyboards()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        subscribeToKeyboarWillShowdNotifications()
-        subscribeToKeyboarWillHidedNotifications()
+        
+        //addKeyboardDismissRecognizer()
+        subscribeToKeyboarNotifications()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareTextField(phraseTextField, defaultText: "")
-        prepareTextField(latitudeTextField, defaultText: "")
-        prepareTextField(longitudeTextField, defaultText: "")
+        prepareTextField(phraseTextField)
+        prepareTextField(latitudeTextField)
+        prepareTextField(longitudeTextField)
+        
+        //tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap")
+        //tapRecognizer?.numberOfTapsRequired = 1
         
     }
 
@@ -166,8 +174,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeFromKeyboarWillHidedNotifications()
-        unsubscribeFromKeyboarWillShowdNotifications()
+        
+        //removeKeyboardDismissRecognizer()
+        unsubscribeFromKeyboarNotifications()
     }
     
     func setUIEnable(enabled enabled: Bool) {
@@ -204,6 +213,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    /*func addKeyboardDismissRecognizer() {
+        view.addGestureRecognizer(tapRecognizer!)
+    }
+    
+    func removeKeyboardDismissRecognizer() {
+        view.removeGestureRecognizer(tapRecognizer!)
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }*/
+    
+    
     func keyboardWillShow(notification: NSNotification) {
     
         if phraseTextField.isFirstResponder() || latitudeTextField.isFirstResponder() || longitudeTextField.isFirstResponder() {
@@ -218,6 +240,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func dismissAnyVisibleKeyboards() {
+        if phraseTextField.isFirstResponder() || latitudeTextField.isFirstResponder() || longitudeTextField.isFirstResponder(){
+            self.view.endEditing(true)
+        }
+
+    }
+    
     func getKeyboardHeight(notification: NSNotification) -> CGFloat
     {
         let userInfo = notification.userInfo
@@ -226,23 +255,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
   
     
-    func subscribeToKeyboarWillShowdNotifications() {
+    func subscribeToKeyboarNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-    }
-    
-    func unsubscribeFromKeyboarWillShowdNotifications() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:
-            UIKeyboardWillShowNotification, object: nil)
-    }
-    
-    func subscribeToKeyboarWillHidedNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    func unsubscribeFromKeyboarWillHidedNotifications() {
+    func unsubscribeFromKeyboarNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:
+            UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name:
             UIKeyboardWillHideNotification, object: nil)
     }
 
 }
-
