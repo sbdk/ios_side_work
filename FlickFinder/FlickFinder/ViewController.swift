@@ -40,6 +40,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func searchByPhraseButton(sender: AnyObject) {
     
         dismissAnyVisibleKeyboards()
+        resultImageView.image = nil
+        imageTitle.text = nil
+        
         let methodArguments = [
         
             "method": METHOD_NAME,
@@ -147,6 +150,117 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func searchByLatLonButton(sender: AnyObject) {
         
         dismissAnyVisibleKeyboards()
+        resultImageView.image = nil
+        imageTitle.text = nil
+        
+        let methodArguments = [
+            
+            "method": METHOD_NAME,
+            "api_key": API_KEY,
+            "bbox": convertLatLongInfo(),
+            "safe_search":SAFE_SEARCH,
+            "extras": EXTRAS,
+            "format": DATA_FORMAT,
+            "nojsoncallback": NO_JSON_CALLBACK
+            
+        ]
+        
+        let session = NSURLSession.sharedSession()
+        
+        let urlString = BASE_URL + escapedParameters(methodArguments)
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        
+        
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            guard (error == nil) else {
+                print("there was an error with your request: \(error)")
+                return
+            }
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                if let response = response as? NSHTTPURLResponse {
+                    print("Your request returned an invalid response! Status code: \(response.statusCode)!")
+                } else if let response = response {
+                    print("Your request returned an invalid response! Response: \(response)!")
+                } else {
+                    print("Your request returned an invalid response!")
+                }
+                return
+            }
+            
+            
+            guard let data = data else {
+                print("No data was returned by the request!")
+                return
+            }
+            
+            
+            let parsedResult: AnyObject!
+            do {
+                parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
+            } catch {
+                parsedResult = nil
+                print("Cound not parse the data as JSON: '\(data)'")
+                return
+                
+            }
+            
+            guard let stat = parsedResult["stat"] as? String where stat == "ok" else {
+                print("Cannot find keys 'photo' in \(parsedResult)")
+                return
+            }
+            
+            /*guard let photosDictionary = parsedResult["photos"] as? NSDictionary else {
+            print("Cannot find keys 'photos' in \(parsedResult)")
+            return
+            } */
+            
+            
+            if let photosDictionary = parsedResult["photos"] as? [String:AnyObject]{
+                
+                var totalPhotosVal = 0
+                if let totalPhotos = photosDictionary["total"] as? String {
+                    totalPhotosVal = (totalPhotos as NSString).integerValue
+                }
+                
+                if totalPhotosVal > 0 {
+                    if let photosArray = photosDictionary["photo"] as? [[String:AnyObject]]{
+                        
+                        let randomPhotoIndex = Int(arc4random_uniform(UInt32(photosArray.count)))
+                        let photoDictionary = photosArray[randomPhotoIndex] as [String:AnyObject]
+                        
+                        let photoTitle = photoDictionary["title"] as? String
+                        let imageUrlString = photoDictionary["url_m"] as? String
+                        guard let imageURL = NSURL(string: imageUrlString!) else {
+                            
+                            print("error")
+                            return
+                        }
+                        
+                        if let imageData = NSData(contentsOfURL: imageURL) {
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.resultImageView.image = UIImage(data: imageData)
+                                self.imageTitle.text = photoTitle ?? "(Untitled)"
+                            })
+                        }  else {
+                            print("Image does not exist at \(imageURL)")
+                        }
+                        
+                    }
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.imageTitle.text = "No Photos Found. Search Again."
+                        self.resultImageView.image = nil
+                    })
+                }
+            }
+        }
+        
+        task.resume()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -183,6 +297,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         imageTitle.enabled = enabled
         
+    }
+    
+    //convert lat and long info into 4 sets of Int.
+    func convertLatLongInfo() -> String {
+        
+        let minLat = Int(floor((latitudeTextField.text! as NSString).doubleValue))
+        let maxLat = Int(ceil((latitudeTextField.text! as NSString).doubleValue))
+        
+        let minLong = Int(floor((longitudeTextField.text! as NSString).doubleValue))
+        let maxLong = Int(ceil((longitudeTextField.text! as NSString).doubleValue))
+        
+        if (-90 ... 90 ~= minLat) && (-90 ... 90 ~= maxLat) && (-180 ... 180 ~= minLong) && (-180 ... 180 ~= maxLong) {
+        
+            return "\(minLong), \(minLat), \(maxLong), \(maxLat)"
+        }
+            
+        else{
+         
+            return "-180,-90,180,90"
+        }
     }
     
     /* Helper function: Given a dictionary of parameters, convert to a string for a url */
