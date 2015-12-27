@@ -43,6 +43,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         resultImageView.image = nil
         imageTitle.text = nil
         
+        if self.phraseTextField.text!.isEmpty {
+            self.imageTitle.text = "Phrase Empty"
+        } else {
+            self.imageTitle.text = "Searching..."
         let methodArguments = [
         
             "method": METHOD_NAME,
@@ -52,99 +56,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             "extras": EXTRAS,
             "format": DATA_FORMAT,
             "nojsoncallback": NO_JSON_CALLBACK
-        
         ]
-        
-        let session = NSURLSession.sharedSession()
-        
-        let urlString = BASE_URL + escapedParameters(methodArguments)
-        let url = NSURL(string: urlString)!
-        let request = NSURLRequest(URL: url)
-        
-        let task = session.dataTaskWithRequest(request) { (data, response, error) in
-        
-                guard (error == nil) else {
-                    print("there was an error with your request: \(error)")
-                    return
-                }
             
-                guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                    if let response = response as? NSHTTPURLResponse {
-                    print("Your request returned an invalid response! Status code: \(response.statusCode)!")
-                    } else if let response = response {
-                    print("Your request returned an invalid response! Response: \(response)!")
-                    } else {
-                    print("Your request returned an invalid response!")
-                    }
-                    return
-                }
-            
-            
-                guard let data = data else {
-                    print("No data was returned by the request!")
-                    return
-                }
-            
-            
-                let parsedResult: AnyObject!
-                do {
-                    parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments)
-                    } catch {
-                        parsedResult = nil
-                        print("Cound not parse the data as JSON: '\(data)'")
-                        return
-                        
-                    }
-
-                guard let stat = parsedResult["stat"] as? String where stat == "ok" else {
-                    print("Cannot find keys 'photo' in \(parsedResult)")
-                    return
-                }
-            
-                /*guard let photosDictionary = parsedResult["photos"] as? NSDictionary else {
-                    print("Cannot find keys 'photos' in \(parsedResult)")
-                    return
-                } */
-            
-            
-                if let photosDictionary = parsedResult["photos"] as? [String:AnyObject]{
-                    
-                    var totalPhotosVal = 0
-                    if let totalPhotos = photosDictionary["total"] as? String {
-                        totalPhotosVal = (totalPhotos as NSString).integerValue
-                    }
-                    
-                    if totalPhotosVal > 0 {
-                        if let photosArray = photosDictionary["photo"] as? [[String:AnyObject]]{
-                            
-                            let randomPhotoIndex = Int(arc4random_uniform(UInt32(photosArray.count)))
-                            let photoDictionary = photosArray[randomPhotoIndex] as [String:AnyObject]
-                            
-                            let photoTitle = photoDictionary["title"] as? String
-                            let imageUrlString = photoDictionary["url_m"] as? String
-                            let imageURL = NSURL(string: imageUrlString!)
-                            
-                            if let imageData = NSData(contentsOfURL: imageURL!) {
-                                dispatch_async(dispatch_get_main_queue(), {
-                                    self.resultImageView.image = UIImage(data: imageData)
-                                    self.imageTitle.text = photoTitle ?? "(Untitled)"
-                                })
-                            }  else {
-                                print("Image does not exist at \(imageURL)")
-                            }
-                            
-                        }
-                    } else {
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.imageTitle.text = "No Photos Found. Search Again."
-                            self.resultImageView.image = nil
-                        })
-                    }
-              }
+        searchByFlickr(methodArguments)
         }
-        
-        task.resume()
-    
     }
     
     @IBAction func searchByLatLonButton(sender: AnyObject) {
@@ -153,17 +68,68 @@ class ViewController: UIViewController, UITextFieldDelegate {
         resultImageView.image = nil
         imageTitle.text = nil
         
-        let methodArguments = [
+        
+        if !latitudeTextField.text!.isEmpty && !longitudeTextField.text!.isEmpty {
             
-            "method": METHOD_NAME,
-            "api_key": API_KEY,
-            "bbox": convertLatLongInfo(),
-            "safe_search":SAFE_SEARCH,
-            "extras": EXTRAS,
-            "format": DATA_FORMAT,
-            "nojsoncallback": NO_JSON_CALLBACK
+            if validLatitude() && validLongitude() {
             
-        ]
+                imageTitle.text = "searching..."
+                let methodArguments = [
+                    "method": METHOD_NAME,
+                    "api_key": API_KEY,
+                    "bbox": convertLatLongInfo(),
+                    "safe_search":SAFE_SEARCH,
+                    "extras": EXTRAS,
+                    "format": DATA_FORMAT,
+                    "nojsoncallback": NO_JSON_CALLBACK
+                ]
+                searchByFlickr(methodArguments)
+            } else {
+                imageTitle.text = "Latidute should be -90 ~ 90, Longitue should be -180 ~ 180"
+            }
+        } else {
+            
+            imageTitle.text = "Latitude and Logitude are both required"
+        }
+    }
+        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //addKeyboardDismissRecognizer()
+        subscribeToKeyboarNotifications()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        prepareTextField(phraseTextField)
+        prepareTextField(latitudeTextField)
+        prepareTextField(longitudeTextField)
+        
+        //tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap")
+        //tapRecognizer?.numberOfTapsRequired = 1
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //removeKeyboardDismissRecognizer()
+        unsubscribeFromKeyboarNotifications()
+    }
+    
+    func setUIEnable(enabled enabled: Bool) {
+        
+        imageTitle.enabled = enabled
+        
+    }
+    
+    func searchByFlickr(methodArguments: [String : AnyObject]) {
         
         let session = NSURLSession.sharedSession()
         
@@ -260,43 +226,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         task.resume()
-
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //addKeyboardDismissRecognizer()
-        subscribeToKeyboarNotifications()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        prepareTextField(phraseTextField)
-        prepareTextField(latitudeTextField)
-        prepareTextField(longitudeTextField)
-        
-        //tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap")
-        //tapRecognizer?.numberOfTapsRequired = 1
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        //removeKeyboardDismissRecognizer()
-        unsubscribeFromKeyboarNotifications()
-    }
-    
-    func setUIEnable(enabled enabled: Bool) {
-        
-        imageTitle.enabled = enabled
-        
     }
     
     //convert lat and long info into 4 sets of Int.
@@ -314,9 +243,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
             
         else{
-         
-            return "-180,-90,180,90"
+            return "0,0,0,0"
         }
+    }
+    
+    func validLatitude () -> Bool {
+        
+        if (latitudeTextField.text! as NSString).doubleValue <= 90.00 && (latitudeTextField.text! as NSString).doubleValue >= -90.00 {
+            
+            return true
+        }
+        
+        return false
+    }
+    
+    func validLongitude() -> Bool {
+        
+        if (longitudeTextField.text! as NSString).doubleValue <= 180.00 && (longitudeTextField.text! as NSString).doubleValue >= -180.00 {
+            
+            return true
+        }
+        
+        return false
+        
     }
     
     /* Helper function: Given a dictionary of parameters, convert to a string for a url */
