@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DADF9CA0209A985E9ACCEE951C641FCAB60D7F28",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "93C9C0E4EFFDD1E75F19B6FB3CE8FD76BE6ED64E" : 0,
+    "DADF9CA0209A985E9ACCEE951C641FCAB60D7F28" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "50C9D77B-8543-479D-BCF0-5869C0EB474C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "93C9C0E4EFFDD1E75F19B6FB3CE8FD76BE6ED64E" : "",
+    "DADF9CA0209A985E9ACCEE951C641FCAB60D7F28" : "ios-networking-2.0\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MyFavoriteMovies",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MyFavoriteMovies\/MyFavoriteMovies.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sbdk\/ios_side_work.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "93C9C0E4EFFDD1E75F19B6FB3CE8FD76BE6ED64E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/udacity\/ios-networking-2.0.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DADF9CA0209A985E9ACCEE951C641FCAB60D7F28"
+    }
+  ]
+}
